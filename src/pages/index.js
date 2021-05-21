@@ -1,6 +1,8 @@
 import * as React from "react";
-import styled from "styled-components"
-import Subscribe from "../components/Subscribe"
+import styled from "styled-components";
+import Subscribe from "../components/Subscribe";
+import SpashImage1 from "../components/splashImages/splash1"
+import SpashImage2 from "../components/splashImages/splash2"
 
 const Text = styled.p`
   display: flex;
@@ -23,7 +25,7 @@ const IndexPage = () => {
     )
   }
 
-  // const splashImage = () => {
+  // const splashImages = () => {
   //   return (
   //     <div className="splash-image-container">
   //       <img className="splash-image" src={splash} />
@@ -31,19 +33,21 @@ const IndexPage = () => {
   //   )
   // }
 
-  const signUp = () => {
-    return (
-      <div className="splash-sign-up-container">
-        <Text>Keep up with our journey</Text>
-      </div>
-    )
-  }
+  // const signUp = () => {
+  //   return (
+  //     <div className="splash-sign-up-container">
+  //       <Text>Keep up with our journey</Text>
+  //     </div>
+  //   )
+  // }
 
   return (
     <>
       {/* {notification()} */}
       {/* {splashImage()} */}
       {/* {signUp()} */}
+      <SpashImage1 />
+      <SpashImage2 />
       <Subscribe />
     </>
   )
