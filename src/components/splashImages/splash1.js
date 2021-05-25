@@ -25,19 +25,17 @@ const Logo = () => {
     query {
       file(name: {eq: "splash1"}, extension: {eq: "jpg"}) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_noBase64
+          fluid(jpegQuality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
     }
   `)
 
-  console.log(data)
-
   return (
     <LogoWrap>
-      <StyledImg fluid={data.file.childImageSharp.fluid} alt="logo" />
+      <StyledImg fluid={data.file.childImageSharp.fluid} alt="splash1" />
     </LogoWrap>
   )
 }

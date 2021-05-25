@@ -2,27 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 
 const QuantityWrapper = styled.div`
-    width: 100%;
+    max-width: 100%;
     display: flex;
-    flex-direction: column;
-    margin: 5vw;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem;
 `
 
-const QuantityLabel = styled.div`
-
+const QuantityLabel = styled.label`
+    color: #363636;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
 `
 
 const QuantityInner = styled.div`
-    display: flex
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
 `
 
 const ButtonWrapper = styled.div`
+    background: none;
 `
 
 const Button = styled.button`
-    width: 50px;
-    height: 50px;
-    border: 1px solid black
+    border: none;
+    background: white;
 `
 
 const QuantityButton = ({ quantity, setQuantity }) => {
@@ -39,7 +45,7 @@ const QuantityButton = ({ quantity, setQuantity }) => {
                 <ButtonWrapper>
                     <Button onClick={decreaseQuantity}>
                         -
-                </Button>
+                    </Button>
                 </ButtonWrapper>
                 <ButtonWrapper>
                     <Button >
@@ -49,7 +55,7 @@ const QuantityButton = ({ quantity, setQuantity }) => {
                 <ButtonWrapper>
                     <Button onClick={increaseQuantity}>
                         +
-                </Button>
+                    </Button>
                 </ButtonWrapper>
             </QuantityInner>
         </QuantityWrapper>

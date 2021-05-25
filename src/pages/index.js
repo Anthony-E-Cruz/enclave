@@ -46,8 +46,8 @@ const IndexPage = () => {
       {/* {notification()} */}
       {/* {splashImage()} */}
       {/* {signUp()} */}
-      <SpashImage1 />
-      <SpashImage2 />
+      {/* <SpashImage1 />
+      <SpashImage2 /> */}
       <Subscribe />
     </>
   )

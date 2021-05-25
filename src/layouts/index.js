@@ -19,32 +19,32 @@ const Layout = ({ children }) => {
         <Provider>
             <StaticQuery
                 query={graphql`
-                query {
-                    site {
-                        siteMetadata {
-                            title
-                            description
-                            author
-                            socialLinks {
-                                name
-                                link
-                            }
-                            primaryNav {
-                                name
-                                link
-                            }
-                            secondaryNav {
+                    query {
+                        site {
+                            siteMetadata {
+                                title
+                                description
+                                author
+                                socialLinks {
                                     name
                                     link
+                                }
+                                primaryNav {
+                                    name
+                                    link
+                                }
+                                secondaryNav {
+                                        name
+                                        link
+                                }
                             }
                         }
                     }
-                }
-            `}
+                `}
                 render={data => (
                     <React.Fragment>
                         <Header siteTitle={data.site.siteMetadata.title} />
-                        <GlobalStyle theme="purple" />
+                        <GlobalStyle />
                         {children}
                         <Footer />
                     </React.Fragment>

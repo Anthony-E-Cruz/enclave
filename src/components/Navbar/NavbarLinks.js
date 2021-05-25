@@ -47,13 +47,13 @@ const NavItem = styled(Link)`
     z-index: 6;
   }
 `
-const NavbarLinks = () => {
+const NavbarLinks = props => {
   return (
     <NavItemsWrapper>
       <NavItem onClick={() => func()} to="/">Home</NavItem>
       <NavItem onClick={() => func()} to="/shop">Shop</NavItem>
       <NavItem onClick={() => func()} to="/about">About</NavItem>
-      <NavItem onClick={() => func()} to="/editorial">Editorials</NavItem>
+      <NavItem onClick={() => func()} to="/cart">Cart ({props.count})</NavItem>
     </NavItemsWrapper>
   )
 }

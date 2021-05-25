@@ -34,20 +34,43 @@ const ProductBox = props => {
     const product = props.product;
     const img1 = product.node.images[0].localFile.childImageSharp.fluid;
     const img2 = product.node.images[1].localFile.childImageSharp.fluid;
-    const [img, setImg] = useState(img1);
+    const [img, setImg] = useState(true);
+
+    const firstImg = () => (
+      <Img
+        fluid={img1}
+        key={product.node.images[0].localFile.id}
+        fadeIn={false} 
+        loading="eager"
+        alt={product.node.title}
+      />
+    )
+
+    const secondImg = () => (
+      <Img
+        fluid={img2}
+        key={product.node.images[0].localFile.id}
+        fadeIn={false} 
+        // loading="eager"
+        alt={product.node.title}
+      />
+    )
+    
+
     return (
         <ProductShopCard 
-          onMouseEnter={() => setImg(img2)}  
-          onMouseLeave={() => setImg(img1)}  
+          onMouseEnter={() => setImg(false)}  
+          onMouseLeave={() => setImg(true)}  
           key={product.node.title}>
             <a href={`/product/${product.node.handle}`} >
-                <Img
+                {img ? firstImg() : secondImg()}
+                {/* <Img
                     fluid={img}
                     key={product.node.images[0].localFile.id}
                     fadeIn={false} 
                     loading="eager"
                     alt={product.node.title}
-                />
+                /> */}
                 <ProductTitle>{product.node.title}</ProductTitle>
                 <ProductPrice>
                     ${product.node.variants[0].price}

@@ -228,7 +228,7 @@ const Header = () => {
           </Navbox>
         ) : (
           <Navbox open>
-            <NavbarLinks func={closeNav} />
+            <NavbarLinks func={closeNav} count={quantity} />
           </Navbox>
         )}
         <Logo />

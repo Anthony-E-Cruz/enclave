@@ -24,15 +24,13 @@ const Logo = () => {
     query {
       file(name: {eq: "splash2"}, extension: {eq: "jpg"}) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_noBase64
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `)
-
-  console.log(data)
 
   return (
     <LogoWrap>

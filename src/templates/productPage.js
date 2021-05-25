@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react' /* eslint-disable */
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
-import ProductInfo from "../components/ProductPage/ProductInfo"
 import StoreContext from '../context/store'
 import VariantSelectors from "../components/ProductPage/VariantSelectors"
 import QuantityButton from "../components/ProductPage/QuantityButton"
@@ -17,6 +16,7 @@ const ProductTitle = styled.p`
 `
 
 const DetailLinks = styled.div`
+  padding: .5rem;
   display: flex;
   justify-content: space-between;
 `
@@ -37,8 +37,13 @@ const DescriptionHtml = styled.div`
   flex-direction: column;
 `
 
+const Price = styled.div`
+    width: 100%;
+    padding: .5rem;
+    font-size: 2rem;
+`
+
 const ModalsText = styled.p`
-  
 `
 
 const productPage = ({ data }) => {
@@ -109,7 +114,8 @@ const productPage = ({ data }) => {
                             <ModalsText onClick={openSizeGuide}>View Size Guide</ModalsText>
                             <ModalsText onClick={openCareInstructions}>View Care Instruction</ModalsText>
                         </DetailLinks>
-                        <ProductInfo product={product} />
+                        <Price>${product.variants[0].price}</Price>
+                        {/* <ProductInfo product={product} /> */}
                             {
                                 product.options.map(options => (
                                     options.name !== "Title" ? 
