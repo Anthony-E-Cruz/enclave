@@ -8,9 +8,8 @@ const LogoWrap = styled.div`
   width: 20vw;
 
   @media (max-width: 768px) {
-    margin-left: 0;
-    width: 40vw;
-    height: 80px;
+    height: 10vh;
+    width: 35vw;
     display: flex;
     justify-content: center;
     align-items: center
@@ -18,6 +17,7 @@ const LogoWrap = styled.div`
 `
 
 const StyledImg=styled(Img)`
+  width: 100%;
 `
 
 const Logo = () => {
@@ -28,14 +28,18 @@ const Logo = () => {
           fixed(width: 150, pngQuality: 100) {
             ...GatsbyImageSharpFixed_noBase64
           }
+          fluid(maxWidth: 200, pngQuality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
         }
       }
     }
   `)
 
   return (
-    <LogoWrap as={Link} to="/">
-      <StyledImg fixed={data.file.childImageSharp.fixed} alt="logo" />
+    <LogoWrap>
+      {/* <StyledImg fixed={data.file.childImageSharp.fixed} alt="logo" /> */}
+      <StyledImg fluid={data.file.childImageSharp.fluid} alt="logo" />
     </LogoWrap>
   )
 }

@@ -115,7 +115,6 @@ const productPage = ({ data }) => {
                             <ModalsText onClick={openCareInstructions}>View Care Instruction</ModalsText>
                         </DetailLinks>
                         <Price>${product.variants[0].price}</Price>
-                        {/* <ProductInfo product={product} /> */}
                             {
                                 product.options.map(options => (
                                     options.name !== "Title" ? 

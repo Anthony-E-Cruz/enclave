@@ -3,7 +3,12 @@ import Seo from "../components/seo"
 import StoreContext from "../context/store"
 import Products from "../components/Cart/Products"
 import Empty from "../components/Cart/Empty"
-import Navbar from "../components/Navbar/Navbar"
+import Navbar from "../components/Navbar/Navbar";
+import styled from 'styled-components';
+
+const CartWrapper = styled.div`
+    margin-top: 2rem;
+`
 
 const Cart = () => {
 
@@ -11,21 +16,15 @@ const Cart = () => {
     const { checkout } = context.store
     console.log(checkout)
     return (
-        <>
-            {/* <Seo /> */}
-            <section className="hero is-large">
-                <div className="hero-body">
-                    <div className="container">
-                        {
-                            checkout.lineItems.length !== 0 ?
-                            <Products checkout={checkout}/>
-                            :
-                            <Empty/>
-                        }
-                    </div>
-                </div>
-            </section>
-        </>
+        <CartWrapper>
+            <Seo />
+            {
+                checkout.lineItems.length !== 0 ?
+                <Products checkout={checkout}/>
+                :
+                <Empty/>
+            }
+        </CartWrapper>
     );
 }
 
