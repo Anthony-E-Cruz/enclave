@@ -80,7 +80,13 @@ const CartWrapper = styled.div`
 `
 
 const SearchModal = styled.div`
-
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    height: 5vh;
+  }
 `
 
 const ShoppingBagQuantity = styled.div`
@@ -179,6 +185,43 @@ const NavbarItem = styled.div`
   }
 `
 
+const SearchBar = styled.div`
+
+  margin: .5rem;
+  width: 85%;
+  margin-top: 1.5rem;
+
+  @media (max-width: 768px) {
+    height: 5vh;
+    margin: .5rem;
+    color: black
+  }
+`
+
+const SearchInput = styled.input`
+
+  @media (max-width: 768px) {
+    height: 5vh;
+  }
+`
+
+const SearchSpan = styled.span`
+
+  @media (max-width: 768px) {
+    height: 5vh !important;
+  }
+`
+
+const ModalBackground = styled.div`
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+
+  @media (max-width: 768px) {
+    
+  }
+`
+
 const FullScreenPaceholder = styled.div`
   min-width: 40vw;
 
@@ -201,8 +244,8 @@ const Header = () => {
     console.log("close navbar effect")
   }, [checkout]);
 
-  const openSearchBar = () => {
-    setModal(true)
+  const toggleSearchBar = () => {
+    modal ? setModal(false) : setModal(true);
   };
 
   const closeSearchBar = () => {
@@ -224,17 +267,17 @@ const Header = () => {
         </Toggle>
         {navbarOpen ? (
           <Navbox>
-            <NavbarLinks func={closeNav} />
+            <NavbarLinks toggleSearchBar={toggleSearchBar} func={closeNav} />
           </Navbox>
         ) : (
           <Navbox open>
-            <NavbarLinks func={closeNav} count={quantity} />
+            <NavbarLinks toggleSearchBar={toggleSearchBar} func={closeNav} count={quantity} />
           </Navbox>
         )}
         <Logo />
         <NavItems>
             <NavbarItem>
-              <Search onClick={openSearchBar} icon={faSearch} />
+              <Search onClick={toggleSearchBar} icon={faSearch} />
             </NavbarItem>
             <NavbarItem>
               <Link aria-label="cart" to="/account/login">
@@ -259,22 +302,30 @@ const Header = () => {
       </Navigation>
       {modal ? 
         <SearchModal>
-            <div className="modal-background" onClick={closeSearchBar}></div>
-            <div className="modal-content">
-              <div className="field">
-                <div className="control has-icons-right">
-                  <form action="../search" method="GET">
-                    <input className="input is-large" name="value" type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search" />
-                    <span className="icon is-right">
-                      <FontAwesomeIcon icon={faSearch} />
-                    </span>
-                    <label className="has-text-white">ENTER ↵</label>
-                  </form>
-                </div>
-              </div>
-            </div>
-          <button className="modal-close is-large" onClick={closeSearchBar} aria-label="close"></button>
-        </SearchModal> : null}
+            {/* <ModalBackground onClick={closeSearchBar}></ModalBackground> */}
+            {/* <div className="modal-content"> */}
+            {/* <div className="field"> */}
+            <SearchBar className="control has-icons-right">
+              <form action="../search" method="GET">
+                <SearchInput 
+                  className="input is-large" 
+                  name="value" 
+                  type="text" 
+                  value={search} 
+                  onChange={e => setSearch(e.target.value)} 
+                  placeholder="Search" 
+                  />
+                <SearchSpan className="icon is-right">
+                  <FontAwesomeIcon icon={faSearch} />
+                </SearchSpan>
+                {/* <label className="has-text-black">ENTER ↵</label> */}
+              </form>
+            </SearchBar>
+            {/* </div> */}
+            {/* </div> */}
+          {/* <button className="modal-close is-large" onClick={closeSearchBar} aria-label="close"></button> */}
+        </SearchModal> : null
+      }
     </>
   )
 }

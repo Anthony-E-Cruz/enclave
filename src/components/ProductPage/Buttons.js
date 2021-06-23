@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Buttons = ({ context, available, productVariant,  quantity}) => {
+   
     const handleAddToCart = () => {
         context.addVariantToCart(productVariant.shopifyId, quantity)
     }

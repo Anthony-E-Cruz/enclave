@@ -86,7 +86,6 @@ const productPage = ({ data }) => {
         console.log(context)
         context.store.client.product.fetch(productId).then((product) => {
             // this checks the currently selected variant for availability
-            console.log("product", product)
             const result = product.variants.filter(
                 variant => variant.id === productVariant.shopifyId
             )
@@ -168,9 +167,9 @@ const productPage = ({ data }) => {
 export default productPage
 
 export const query = graphql`
-  query($id: String!){
-                shopifyProduct(handle: {eq: $id}) {
-                handle
+    query($id: String!){
+        shopifyProduct(handle: {eq: $id}) {
+            handle
             id
             title
             handle
@@ -192,18 +191,18 @@ export const query = graphql`
                   name
                   value
                 }
-              }
+            }
               images {
                 originalSrc
                 id
                 localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 910) {
-                      ...GatsbyImageSharpFluid_withWebp_noBase64
+                    childImageSharp {
+                        fluid(maxWidth: 910, quality: 100) {
+                            ...GatsbyImageSharpFluid_noBase64
+                        }
                     }
-                  }
                 }
-              }
+            }
         } 
       }
     `

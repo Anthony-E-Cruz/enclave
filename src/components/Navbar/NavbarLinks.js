@@ -47,10 +47,86 @@ const NavItem = styled(Link)`
     z-index: 6;
   }
 `
+
+const NavHomeItem = styled(Link)`
+  display: none;
+
+  @media (max-width: 768px) {
+    padding: 20px 0;
+    font-size: 1.5rem;
+    z-index: 6;
+    text-decoration: none;
+    color: #111;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 1vw;
+    transition: all 200ms ease-in;
+    position: relative;
+
+    :after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 0%;
+      content: ".";
+      color: transparent;
+      background: goldenrod;
+      height: 1px;
+      transition: all 0.4s ease-in;
+    }
+
+    :hover {
+      color: goldenrod;
+      ::after {
+        width: 100%;
+      }
+    }
+  }
+`
+
+const NavSearchItem = styled(Link)`
+  text-decoration: none;
+  color: #111;
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 1vw;
+  transition: all 200ms ease-in;
+  position: relative;
+
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
+    content: ".";
+    color: transparent;
+    background: goldenrod;
+    height: 1px;
+    transition: all 0.4s ease-in;
+  }
+
+  :hover {
+    color: goldenrod;
+    ::after {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    z-index: 6;
+  }
+`
+
 const NavbarLinks = props => {
   return (
     <NavItemsWrapper>
-      <NavItem onClick={() => func()} to="/">Home</NavItem>
+      <NavHomeItem onClick={() => func()} to="/">Home</NavHomeItem>
+      <NavSearchItem onClick={() => props.toggleSearchBar()} to="/">Search</NavSearchItem>
       <NavItem onClick={() => func()} to="/shop">Shop</NavItem>
       <NavItem onClick={() => func()} to="/about">About</NavItem>
       <NavItem onClick={() => func()} to="/cart">Cart ({props.count})</NavItem>

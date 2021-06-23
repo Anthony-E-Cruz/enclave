@@ -25,29 +25,10 @@ const IndexPage = () => {
     )
   }
 
-  // const splashImages = () => {
-  //   return (
-  //     <div className="splash-image-container">
-  //       <img className="splash-image" src={splash} />
-  //     </div>
-  //   )
-  // }
-
-  // const signUp = () => {
-  //   return (
-  //     <div className="splash-sign-up-container">
-  //       <Text>Keep up with our journey</Text>
-  //     </div>
-  //   )
-  // }
-
   return (
     <>
-      {/* {notification()} */}
-      {/* {splashImage()} */}
-      {/* {signUp()} */}
-      {/* <SpashImage1 />
-      <SpashImage2 /> */}
+      <SpashImage1 />
+      <SpashImage2 />
       <Subscribe />
     </>
   )
@@ -55,14 +36,3 @@ const IndexPage = () => {
 
 
 export default IndexPage
-
-// export const query = graphql`
-//   {
-//     shopifyArticle {
-//       id
-//       title
-//       url
-//       content
-//     }
-//   }
-// `

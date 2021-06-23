@@ -17,7 +17,7 @@ const ShopItems = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
 
   @media (max-width: 768px) {
     display: flex;
