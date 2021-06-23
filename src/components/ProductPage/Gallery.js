@@ -24,7 +24,7 @@ const NextImageIcon = styled(IoIosArrowForward)(() => (`
     position: absolute;
     height: 50px;
     width: 50px;
-    z-index: 2;
+    z-index: 1;
     right: 20px;
     top: 150px
 `))
@@ -33,7 +33,7 @@ const PrevImageIcon = styled(IoIosArrowBack)(() => (`
     position: absolute;
     height: 50px;
     width: 50px;
-    z-index: 2;
+    z-index: 1;
     left: 20px;
     top: 150px
 `))

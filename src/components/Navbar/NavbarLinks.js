@@ -20,6 +20,7 @@ const NavItem = styled(Link)`
   margin: 0 1vw;
   transition: all 200ms ease-in;
   position: relative;
+  font-weight: 700;
 
   :after {
     position: absolute;
@@ -50,6 +51,7 @@ const NavItem = styled(Link)`
 
 const NavHomeItem = styled(Link)`
   display: none;
+  font-weight: 700;
 
   @media (max-width: 768px) {
     padding: 20px 0;
@@ -85,7 +87,7 @@ const NavHomeItem = styled(Link)`
   }
 `
 
-const NavSearchItem = styled(Link)`
+const NavSearchItem = styled.div`
   text-decoration: none;
   color: #111;
   display: inline-block;
@@ -93,6 +95,7 @@ const NavSearchItem = styled(Link)`
   margin: 0 1vw;
   transition: all 200ms ease-in;
   position: relative;
+  font-weight: 700;
 
   :after {
     position: absolute;
@@ -126,7 +129,7 @@ const NavbarLinks = props => {
   return (
     <NavItemsWrapper>
       <NavHomeItem onClick={() => func()} to="/">Home</NavHomeItem>
-      <NavSearchItem onClick={() => props.toggleSearchBar()} to="/">Search</NavSearchItem>
+      <NavSearchItem onClick={() => props.toggleSearchBar()}>Search</NavSearchItem>
       <NavItem onClick={() => func()} to="/shop">Shop</NavItem>
       <NavItem onClick={() => func()} to="/about">About</NavItem>
       <NavItem onClick={() => func()} to="/cart">Cart ({props.count})</NavItem>
